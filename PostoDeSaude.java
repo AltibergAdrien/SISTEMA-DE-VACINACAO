@@ -4,7 +4,7 @@ public class PostoDeSaude {
     private ArrayList<Requisitos> marcacoes = new ArrayList<>();
     private ArrayList<Requisitos> filaEspera = new ArrayList<>();
 
-    public void marcarVacina(int rg, String nome, int idade, String email) {
+    public void marcarVacina(String rg, String nome, int idade, String email) {
         if (marcacoes.size() < 10) {
             Requisitos requisitos = new Requisitos(email, nome, idade, email);
             marcacoes.add(requisitos);
@@ -26,26 +26,24 @@ public class PostoDeSaude {
                     Requisitos proximRequisitos = filaEspera.remove(0);
                     marcacoes.add(proximRequisitos);
                     System.out.println("Vaga liberada, próximo da fila confirmado!");
-                }
-                else{
+                } else {
                     System.out.println("Marcação não encontrada para o RG informado! ");
                 }
             }
 
         }
     }
-    public void Listagem(){
+
+    public void Listagem() {
         System.out.println("Vacinações agendadas: ");
-        for(Requisitos pessoa : marcacoes){
+        for (Requisitos pessoa : marcacoes) {
             System.out.println(pessoa.getNome() + " RG: " + pessoa.getRG());
         }
 
         System.out.println("Vacinações na fila de espera: ");
-        for( Requisitos pessoa : filaEspera){
+        for (Requisitos pessoa : filaEspera) {
             System.out.println(pessoa.getNome() + " RG: " + pessoa.getRG());
         }
     }
-
-
 
 }
